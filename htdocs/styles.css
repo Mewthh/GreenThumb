@@ -1,0 +1,1332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Import Press Start 2P font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* hello world
+/* Use PNG background instead of gradient */
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    position: relative;
+    background-image: url('images/orig1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    image-rendering: pixelated; /* keeps that retro pixel look */
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.TileContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	left: 50%;
+	bottom: 10vh;
+	transform: translateX(-50%);
+	z-index: 10;
+	border: 6px solid rgb(210, 225, 140);
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0.1);
+	width: fit-content;
+	padding: 0;
+	gap: 0;
+}
+
+/* Each TileToon */
+.TileToon {
+	height: 130px;
+    width: 150px;
+	border-style: solid;
+	border-width: 0px 63px 116px 64px;
+	border-image: url('assets/gui/tile07.png') 0 63 116 64 fill stretch;
+	display: block;
+	flex-shrink: 0;
+}
+
+.logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin-top: 8px;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color: #1a3009;
+    background: linear-gradient(180deg, #8ba65d 0%, #6b8e4a 100%);
+    border: 6px solid #2d5016;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    image-rendering: pixelated;
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.3),
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transition: none;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+    z-index: 999;
+}
+
+.logout-button:hover {
+    background: linear-gradient(180deg, #9bb66d 0%, #7b9e5a 100%);
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 0 rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.logout-button:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0 0 rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.logout-button span {
+    display: block;
+    pointer-events: none;
+}
+
+.brown-button {
+    padding: 7px 14px;
+    font-size: 8px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color: #fff7e6;
+    background: linear-gradient(180deg, #5a3a1e 0%, #3b2412 100%);
+    border: 6px solid #2a180b;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    image-rendering: pixelated;
+    box-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.3),
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+    transition: transform 0.1s ease-in-out;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+    z-index: 999;
+}
+.brown-button i {
+	margin-right: 6px;
+	font-size: 12px;
+}
+.brown-button:hover {
+    background: linear-gradient(180deg, #6b4627 0%, #4a2b15 100%);
+    transform: translateY(2px);
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.brown-button:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 0 0 rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Maintain same layout as before */
+.button-bar {
+	position: fixed;
+	left: 50%;
+	bottom: 10vh;
+	transform: translateX(-50%);
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 20;
+	pointer-events: none;
+	margin-top: -2px;
+}
+
+.button-bar > * {
+    position: absolute;
+	pointer-events: auto;
+}
+
+/* Adjust text/icon spacing */
+
+.Button {
+    height: 50px;
+    width: 120px;
+    left: 145px;
+    bottom: 32px;
+}
+
+.ButtonBuyPots {
+    height: 50px;
+    width: 120px;
+    left: 10px;
+    bottom: 32px;
+}
+
+.ButtonUpgrade {
+    height: 50px;
+    width: 120px;
+    right: 5px;
+    bottom: 32px;
+}
+
+.ButtonAchievements {
+    height: 50px;
+    width: 120px;
+    right: 140px;
+    bottom: 32px;
+}
+.ButtonBuyPots i {
+    margin-left: 30px;
+}
+.ButtonUpgrade i {
+   margin-left: 30px;
+}
+/* Responsive scaling */
+@media (max-width: 1400px) {
+    .button-bar > * { transform: scale(0.9); }
+}
+
+@media (max-width: 1100px) {
+    .button-bar > * { transform: scale(0.75); }
+}
+
+@media (max-width: 768px) {
+    .button-bar { bottom: 8vh; }
+    .button-bar > * { transform: scale(0.6); }
+}
+
+/* Upgrade Window Overlay */
+.upgrade-window {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* dark transparent overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Window Box */
+.upgrade-content {
+    width: 400px;
+    height: 300px;
+    background: linear-gradient(180deg, #6b4627 0%, #3b2412 100%);
+    border: 6px solid #2a180b;
+    border-radius: 12px;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 28px;
+    color: #fff7e6;
+    cursor: pointer;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+.close-btn:hover {
+    color: #ffdf8c;
+}
+
+/* ----- Title (same style as shop-title) ----- */
+.upgrade-title {
+    text-align: center;
+    margin: 10px 0 12px;
+    font-size: 22px;
+    color: #fff3d4;
+    text-shadow: 2px 2px #2a180b;
+    font-weight: bold;
+    image-rendering: pixelated;
+}
+
+/* ----- Scrollable list (same as shop-items) ----- */
+.upgrade-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 230px;
+    padding: 0 12px;
+    overflow-y: auto;
+}
+
+.upgrade-items::-webkit-scrollbar {
+    width: 8px;
+}
+.upgrade-items::-webkit-scrollbar-thumb {
+    background: #3a1f0c;
+    border-radius: 4px;
+}
+.upgrade-items::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* ----- Individual item (same as shop-item) ----- */
+.upgrade-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #6a3d1a;
+    border: 3px solid #2a180b;
+    padding: 8px;
+    border-radius: 6px;
+    image-rendering: pixelated;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Icon */
+.upgrade-icon {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+/* Text */
+.upgrade-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #ffe0a6;
+    text-shadow: 1px 1px #2a180b;
+}
+.upgrade-info p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #ffcd85;
+}
+
+/* Buy button (same as shop-buy-btn) */
+.upgrade-buy-btn {
+    background: #d19a40;
+    border: 3px solid #2a180b;
+    padding: 6px 10px;
+    color: #2a180b;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    image-rendering: pixelated;
+}
+
+.upgrade-buy-btn:hover {
+    background: #e8b75a;
+}
+
+
+/* Shop Window Overlay */
+.shop-window {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Shop Window Box */
+.shop-content {
+    width: 420px;
+    height: 320px;
+    background: linear-gradient(180deg, #8b5a2b 0%, #4b2a15 100%);
+    border: 6px solid #2a180b;
+    border-radius: 12px;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+/* Close Button (Shop) */
+.close-shop {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 28px;
+    color: #fff7e6;
+    cursor: pointer;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+.close-shop:hover {
+    color: #ffdf8c;
+}
+/* Title */
+.shop-title {
+    text-align: center;
+    margin: 10px 0 12px;
+    font-size: 22px;
+    color: #fff3d4;
+    text-shadow: 2px 2px #2a180b;
+    font-weight: bold;
+    image-rendering: pixelated;
+}
+
+/* Shop list */
+.shop-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 240px;
+    padding: 0 12px;
+    overflow-y: auto;
+}
+
+/* Pixel scroll bar */
+.shop-items::-webkit-scrollbar {
+    width: 8px;
+}
+.shop-items::-webkit-scrollbar-thumb {
+    background: #3a1f0c;
+    border-radius: 4px;
+}
+.shop-items::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* Single shop item */
+.shop-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #6a3d1a;
+    border: 3px solid #2a180b;
+    padding: 8px;
+    border-radius: 6px;
+    image-rendering: pixelated;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Icon */
+.shop-icon {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+/* Text inside item */
+.shop-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #ffe0a6;
+    text-shadow: 1px 1px #2a180b;
+}
+.shop-info p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #ffcd85;
+}
+
+/* Buy button */
+.shop-buy-btn {
+    background: #d19a40;
+    border: 3px solid #2a180b;
+    padding: 6px 10px;
+    color: #2a180b;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    image-rendering: pixelated;
+}
+
+.shop-buy-btn:hover {
+    background: #e8b75a;
+}
+.achievements-window {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Achievements Window Box */
+.achievements-content {
+    width: 420px;
+    height: 320px;
+    background: linear-gradient(180deg, #a6762b 0%, #6a4415 100%);
+        /* More golden-brown to match "achievement" theme */
+    border: 6px solid #3a230a;
+    border-radius: 12px;
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.25);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+/* Close Button (Achievements) */
+.close-achievements {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 28px;
+    color: #fff7e6;
+    cursor: pointer;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+.close-achievements:hover {
+    color: #ffe6a0;
+}
+.achievements-title {
+    text-align: center;
+    margin: 10px 0 12px;
+    font-size: 22px;
+    color: #fff7e6;
+    text-shadow: 2px 2px #3a230a;
+    font-weight: bold;
+    image-rendering: pixelated;
+}
+
+/* List container */
+.achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 240px; /* fits inside 320px window */
+    padding: 0 10px;
+    overflow-y: auto;
+}
+
+/* Scrollbar (pixel style) */
+.achievement-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.achievement-list::-webkit-scrollbar-thumb {
+    background: #5c3810;
+    border-radius: 4px;
+}
+
+.achievement-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* Achievement Item */
+.achievement-item {
+    display: flex;
+    align-items: center;
+    background: #7a521d; /* dark brown card */
+    border: 3px solid #3a230a; /* thick pixel border */
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    image-rendering: pixelated;
+    gap: 10px;
+}
+
+/* Icon */
+.achievement-icon {
+    font-size: 30px;
+    filter: brightness(1.1);
+}
+
+/* Text */
+.achievement-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #ffe6b3;
+    text-shadow: 1px 1px #3a230a;
+}
+
+.achievement-info p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #f8d289;
+}
+
+/* Achievement badges */
+.achievement-badge {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    background: rgba(76, 175, 80, 0.3);
+    color: #a8ff9e;
+}
+
+.locked-badge {
+    background: rgba(0, 0, 0, 0.3);
+    color: #999;
+}
+
+.achievement-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background: linear-gradient(135deg, #ffd35c 0%, #ffaa00 100%);
+    color: #2d1b00;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+    border: 3px solid #8b6914;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.achievement-notification.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Unlocked achievement styling */
+.achievement-item.unlocked {
+    background: #8b6b2d;
+    border-color: #ffd35c;
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 211, 92, 0.4);
+}
+
+/* Locked achievement styling */
+.achievement-item.locked {
+    background: #4a3518;
+    border-color: #2a180b;
+    opacity: 0.6;
+}
+
+.achievement-item.locked .achievement-icon {
+    filter: grayscale(100%) brightness(0.5);
+}
+
+.achievement-item.locked h3 {
+    color: #8b7355;
+}
+
+.achievement-item.locked p {
+    color: #6b5845;
+}
+
+/* Collection Window Overlay */
+.collection-window {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Bigger Window Box */
+.collection-content {
+    width: 520px;
+    height: 420px;
+    background: linear-gradient(180deg, #c9a065 0%, #8b663b 100%);
+    border: 6px solid #4b321c;
+    border-radius: 12px;
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.25);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+/* Close Button */
+.close-collection {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 30px;
+    color: #fff7e6;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+}
+
+.close-collection:hover {
+    color: #ffefc2;
+}
+
+/* Title */
+.collection-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff7e6;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+    font-family: 'Courier New', monospace;
+}
+
+/* Bigger Scroll Area */
+.collection-scroll {
+    height: 360px;
+    padding: 12px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Section Wrapper */
+.collection-section {
+    margin-bottom: 16px;
+}
+
+/* Subtitles (larger for big window) */
+.collection-subtitle {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+    font-family: 'Courier New', monospace;
+}
+
+/* Subtitle Colors */
+.collection-subtitle.common { color: #ffffff; }
+.collection-subtitle.rare { color: #6ad0ff; }
+.collection-subtitle.epic { color: #d56bff; }
+.collection-subtitle.legendary { color: #ffdd59; }
+
+/* Flower item layout */
+.flower-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Each flower box */
+.flower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    height: 95px;
+    background: #6a3d1a;
+    border: 3px solid #2a180b;
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 11px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+/* Uncollected flowers - mystery state */
+.flower:not(.collected) {
+    background: #3a2212;
+    border-color: #1a0f06;
+}
+
+.flower:not(.collected) img {
+    filter: brightness(0) opacity(0.3);
+}
+
+.flower:not(.collected) span {
+    color: #666;
+    font-style: italic;
+}
+
+.flower:not(.collected)::before {
+    content: '?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Collected flowers - glow effect */
+.flower.collected {
+    border-color: #ffd35c;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        0 0 12px rgba(255, 211, 92, 0.55);
+}
+
+.collection-count {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffe9a9;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* Flower images */
+.flower-icon {
+    width: 60px;
+    height: 60px;
+    image-rendering: pixelated;
+}
+
+/* Legendary icon is larger */
+.legendary-icon {
+    width: 75px;
+    height: 75px;
+    image-rendering: pixelated;
+}
+
+.coin-window {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 8px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: linear-gradient(180deg, #c9a065 0%, #8b663b 100%);
+    border: 4px solid #4b321c;
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255,255,255,0.2);
+
+    image-rendering: pixelated;
+    z-index: 999;
+}
+
+/* CSS-only Coin Icon */
+.coin-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 30% 30%,
+        #fff3a3,
+        #ffd447 40%,
+        #e0a423 70%,
+        #a46f12 100%
+    );
+
+    border: 3px solid #6d4b08;
+    box-shadow:
+        inset 2px 2px 0 rgba(255,255,255,0.3),
+        inset -2px -2px 0 rgba(0,0,0,0.3);
+}
+
+/* Coin amount text */
+#coinAmount {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff7e6;
+    font-family: 'Courier New', monospace;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+    image-rendering: pixelated;
+}
+
+#plant-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    pointer-events: auto;
+    padding-bottom: calc(10vh + 126px);
+}
+
+#plant-container.stage1-active {
+    padding-bottom: calc(10vh + 130px);
+}
+
+#plant-container.stage2-active {
+    padding-bottom: calc(10vh + 120px);
+}
+
+/* Seed (centered always) */
+.seed-stage {
+    font-size: 100px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+    pointer-events: auto;
+}
+
+/* Prevent seed IMG from blocking fullscreen taps */
+.seed-stage img {
+    pointer-events: none;
+}
+
+
+/* Tap animation */
+.seed-stage:active {
+    transform: scale(1.15);
+}
+
+/* Enhanced click pulse effect */
+@keyframes clickPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.seed-stage.click-pulse {
+    animation: clickPulse 0.15s ease-out;
+}
+
+/* Floating coin text */
+.float-text {
+    position: fixed;
+    pointer-events: none;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 
+        2px 2px 0 #8b6914,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000;
+    z-index: 9999;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-80px) scale(0.8);
+    }
+}
+
+/* Tap particle effect */
+.tap-particle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: particleBurst 0.6s ease-out forwards;
+}
+
+@keyframes particleBurst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+/* Ripple effect */
+.tap-ripple {
+    position: fixed;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 215, 0, 0.6);
+    pointer-events: none;
+    z-index: 9997;
+    animation: rippleExpand 0.5s ease-out forwards;
+}
+
+@keyframes rippleExpand {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+    }
+}
+
+/* Tap counter */
+#tap-count {
+    position: fixed;
+    left: 50%;
+    bottom: calc(10vh + 380px);
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    color: #333;
+    z-index: 20;
+    text-shadow: 3px 3px 0 rgba(209, 207, 207, 0.418), 5px 5px 0 rgba(0, 0, 0, 0.183);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 2px;
+}
+
+.seed-stage.stage2 {
+    font-size: 120px;
+}
+
+.seed-stage.stage2 img {
+    width: 180px;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.seed-stage.stage3 {
+    font-size: 140px;
+}
+.seed-stage.stage3 img {
+    width: 150px; /* adjust size */
+    height: auto;
+    display: block;
+}
+
+/* ===== RARITY GLOW AURAS ===== */
+
+.seed-stage.rarity-common {
+    filter: drop-shadow(0 0 8px #4ade80) drop-shadow(0 0 20px #22c55e);
+    animation: glowPulseCommon 2s ease-in-out infinite;
+}
+
+.seed-stage.rarity-rare {
+    filter: drop-shadow(0 0 10px #60a5fa) drop-shadow(0 0 25px #3b82f6);
+    animation: glowPulseRare 2s ease-in-out infinite;
+}
+
+.seed-stage.rarity-epic {
+    filter: drop-shadow(0 0 12px #c084fc) drop-shadow(0 0 30px #a855f7);
+    animation: glowPulseEpic 1.8s ease-in-out infinite;
+}
+
+.seed-stage.rarity-legendary {
+    filter: drop-shadow(0 0 15px #fcd34d) drop-shadow(0 0 35px #f59e0b) drop-shadow(0 0 50px #fbbf24);
+    animation: glowPulseLegendary 1.5s ease-in-out infinite;
+}
+
+@keyframes glowPulseCommon {
+    0%, 100% { filter: drop-shadow(0 0 8px #4ade80) drop-shadow(0 0 20px #22c55e); }
+    50% { filter: drop-shadow(0 0 15px #4ade80) drop-shadow(0 0 30px #22c55e); }
+}
+
+@keyframes glowPulseRare {
+    0%, 100% { filter: drop-shadow(0 0 10px #60a5fa) drop-shadow(0 0 25px #3b82f6); }
+    50% { filter: drop-shadow(0 0 18px #60a5fa) drop-shadow(0 0 35px #3b82f6); }
+}
+
+@keyframes glowPulseEpic {
+    0%, 100% { filter: drop-shadow(0 0 12px #c084fc) drop-shadow(0 0 30px #a855f7); }
+    50% { filter: drop-shadow(0 0 22px #c084fc) drop-shadow(0 0 45px #a855f7); }
+}
+
+@keyframes glowPulseLegendary {
+    0%, 100% { filter: drop-shadow(0 0 15px #fcd34d) drop-shadow(0 0 35px #f59e0b) drop-shadow(0 0 50px #fbbf24); }
+    50% { filter: drop-shadow(0 0 25px #fcd34d) drop-shadow(0 0 50px #f59e0b) drop-shadow(0 0 70px #fbbf24); }
+}
+
+/* ===== NEW UPGRADE STRIP STYLES ===== */
+
+.upgrade-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 10px 16px 14px;
+}
+
+.upgrade-strip-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.upgrade-icon-large {
+    font-size: 48px;
+    flex-shrink: 0;
+}
+
+.upgrade-strip-info h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    color: #ffe6b3;
+    text-shadow: 1px 1px #2a180b;
+}
+
+.upgrade-description {
+    margin: 0;
+    font-size: 13px;
+    color: #ffcd85;
+}
+
+.upgrade-strip-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.stat-box {
+    flex: 1;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #2a180b;
+    border-radius: 6px;
+    padding: 8px 4px;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #ffcd85;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff3d4;
+    text-shadow: 1px 1px #2a180b;
+}
+
+.upgrade-strip-action {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upgrade-buy-btn-main {
+    background: linear-gradient(180deg, #e8b75a 0%, #d19a40 100%);
+    border: 4px solid #2a180b;
+    padding: 12px 16px;
+    color: #2a180b;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    image-rendering: pixelated;
+    transition: transform 0.1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.upgrade-buy-btn-main:hover {
+    background: linear-gradient(180deg, #f5c96e 0%, #e8b75a 100%);
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 0 rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.upgrade-buy-btn-main:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0 0 rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.upgrade-buy-btn-main:disabled {
+    background: #666;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-text {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.btn-subtext {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.upgrade-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #2a180b;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.upgrade-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50 0%, #66bb6a 100%);
+    transition: width 0.3s ease;
+    width: 5%;
+}
+
+.upgrade-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
+}
+
+/* ===== SHOP-SPECIFIC STYLES (for luck system) ===== */
+
+.shop-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 10px 16px 14px;
+}
+
+.shop-strip-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.shop-icon-large {
+    font-size: 48px;
+    flex-shrink: 0;
+}
+
+.shop-strip-info h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    color: #ffe6b3;
+    text-shadow: 1px 1px #2a180b;
+}
+
+.shop-description {
+    margin: 0;
+    font-size: 13px;
+    color: #ffcd85;
+}
+
+.shop-strip-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.shop-strip-action {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shop-buy-btn-main {
+    background: linear-gradient(180deg, #6ec96e 0%, #4caf50 100%);
+    border: 4px solid #2a180b;
+    padding: 12px 16px;
+    color: #1a3009;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    image-rendering: pixelated;
+    transition: transform 0.1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.shop-buy-btn-main:hover {
+    background: linear-gradient(180deg, #7fdb7f 0%, #66bb6a 100%);
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 0 rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.shop-buy-btn-main:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0 0 rgba(0, 0, 0, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.shop-buy-btn-main:disabled {
+    background: #666;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.shop-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #2a180b;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.shop-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #66bb6a 0%, #81c784 100%);
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.shop-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
+}

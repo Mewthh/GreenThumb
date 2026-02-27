@@ -1,0 +1,271 @@
+/* Pixelated Game Theme Login Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: 'Courier New', monospace, Arial, sans-serif;
+    background-image: url('images/orig1.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-panel {
+    background: rgba(139, 166, 93, 0.95);
+    border: 8px solid rgb(210, 225, 140);
+    border-radius: 4px;
+    padding: 30px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 
+        0 0 0 4px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(0, 0, 0, 0.5);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+.login-panel::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: rgba(210, 225, 140, 0.3);
+    border-radius: 4px;
+    z-index: -1;
+}
+
+.login-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2d5016;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(45, 80, 22, 0.5);
+    letter-spacing: 3px;
+    image-rendering: pixelated;
+    font-family: 'Courier New', monospace;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: #1a3009;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.error-message,
+.success-message {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 4px solid;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    image-rendering: pixelated;
+}
+
+.error-message {
+    background: rgba(255, 100, 100, 0.9);
+    border-color: #ff4444;
+    color: #8b0000;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.success-message {
+    background: rgba(100, 255, 100, 0.9);
+    border-color: #44ff44;
+    color: #008b00;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a3009;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid #2d5016;
+    border-radius: 4px;
+    color: #1a3009;
+    outline: none;
+    image-rendering: pixelated;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 0 2px rgba(210, 225, 140, 0.5);
+    transition: none;
+}
+
+.input-group input:focus {
+    border-color: rgb(210, 225, 140);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 0 4px rgba(210, 225, 140, 0.8);
+}
+
+.input-group input::placeholder {
+    color: #6b8e4a;
+    opacity: 0.7;
+}
+
+.login-button {
+    margin-top: 8px;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color: #1a3009;
+    background: linear-gradient(180deg, #8ba65d 0%, #6b8e4a 100%);
+    border: 6px solid #2d5016;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    image-rendering: pixelated;
+    box-shadow: 
+        0 4px 0 rgba(0, 0, 0, 0.3),
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    transition: none;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+}
+
+.login-button:hover {
+    background: linear-gradient(180deg, #9bb66d 0%, #7b9e5a 100%);
+    transform: translateY(2px);
+    box-shadow: 
+        0 2px 0 rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0 0 rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.login-button span {
+    display: block;
+    pointer-events: none;
+}
+
+.login-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link {
+    color: #1a3009;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+    transition: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 3px solid transparent;
+    border-radius: 4px;
+}
+
+.back-link:hover {
+    color: #2d5016;
+    border-color: #2d5016;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Pixelated effect for all text */
+.login-panel * {
+    image-rendering: pixelated;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-panel {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+    
+    .login-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+    
+    .input-group input {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .login-button {
+        padding: 14px 24px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-panel {
+        padding: 25px 15px;
+    }
+    
+    .login-title {
+        font-size: 28px;
+    }
+    
+    .login-subtitle {
+        font-size: 14px;
+    }
+}
+
